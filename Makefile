@@ -2,6 +2,7 @@ PINNED_TOOLCHAIN := $(shell cat contract/rust-toolchain)
 LATEST_WASM := $(shell curl -s https://api.github.com/repos/cowlnetwork/cep18/releases/latest | jq -r '.assets[] | select(.name=="cowl-cep18-wasm.tar.gz") | .browser_download_url')
 
 prepare:
+	rustup install ${PINNED_TOOLCHAIN} # Ensure the correct nightly is installed
 	rustup target add wasm32-unknown-unknown
 	rustup component add clippy --toolchain ${PINNED_TOOLCHAIN}
 	rustup component add rustfmt --toolchain ${PINNED_TOOLCHAIN}
