@@ -9,6 +9,9 @@ TAG=${GITHUB_REF_NAME:-local}
 TEMP_DIR="/tmp/ci_package_wasm_$TAG"
 TARBALL="cowl-vesting-wasm.tar.gz"
 
+# Print WASM_FILE_PATH_ARRAY
+echo "WASM_FILE_PATH_ARRAY: ${WASM_FILE_PATH_ARRAY[@]}"
+
 # Hygiene for local debugging. Won't apply to CI.
 if [ -d "$TEMP_DIR" ]; then
     rm -rf "$TEMP_DIR"
@@ -29,6 +32,10 @@ if [ -d "$TEMP_DIR" ]; then
             fi
         fi
     done
+
+    # List the files in the temp directory before creating the tarball
+    echo "Listing files in $TEMP_DIR before creating the tarball:"
+    ls -lh "$TEMP_DIR"
 
     # Move to the staging directory
     pushd "$TEMP_DIR" > /dev/null
