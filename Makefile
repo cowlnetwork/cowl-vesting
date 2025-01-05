@@ -11,6 +11,7 @@ prepare:
 .PHONY:	build-contract
 build-contract:
 	cd contract && RUSTFLAGS="-C target-cpu=mvp" cargo build --release --target wasm32-unknown-unknown -Z build-std=std,panic_abort -p cowl-vesting
+	wasm-strip target/wasm32-unknown-unknown/release/cowl_vesting.wasm
 
 setup-test: build-contract
 	mkdir -p tests/wasm
