@@ -124,8 +124,6 @@ pub fn init_events() {
         let schemas = Schemas::new()
             .with::<SetModalities>()
             .with::<Upgrade>()
-            .with::<CowlCep18ContractPackageUpdate>()
-            .with::<CheckTransfer>()
             .with::<ChangeSecurity>();
         casper_event_standard::init(schemas);
     }
