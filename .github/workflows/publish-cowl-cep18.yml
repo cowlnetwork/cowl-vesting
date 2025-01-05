@@ -49,4 +49,4 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: /tmp/ci_package_wasm_${{ github.ref_name }}/cowl_vesting-wasm.tar.gz
+          file: /tmp/ci_package_wasm_${{ github.ref_name }}/cowl-vesting-wasm.tar.gz
