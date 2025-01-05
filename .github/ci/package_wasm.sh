@@ -3,7 +3,7 @@
 set -e
 
 BUILD_ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." >/dev/null 2>&1 && pwd)"
-IGNORE=''
+IGNORE='ignore'
 WASM_FILE_PATH_ARRAY=($(cat "$BUILD_ROOT_DIR/../Makefile" | grep 'wasm-strip' | awk -F' ' '{print $2}'))
 TAG=${GITHUB_REF_NAME:-local}
 TEMP_DIR="/tmp/ci_package_wasm_$TAG"
